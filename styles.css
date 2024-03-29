@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, lightblue, lightgrey) fixed center/cover;
+  padding-top: 20vw;
+  margin: 0;
+}
+
+.card {
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.5s, box-shadow 0.5s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+  transition: transform 0.5s;
+}
+
+.card:hover img {
+  transform: scale(1);
+}
+
+.top-bar {
+  backdrop-filter: blur(0.5rem);
+  background-color: rgba(255, 255, 255, 0.05); /* Original background with opacity */
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.top-bar img.logo {
+  height: 50px; /* Adjust height as needed */
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-link {
+  color: #ffffff; /* White text color for links */
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+.nav-link:hover {
+  color: #ff7f0e; /* Orange hover color */
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #ff7f0e; /* Orange button background */
+  border: none;
+  transition: background-color 0.3s ease; /* Smooth transition for button color */
+}
+
+.btn:hover {
+  background-color: #e65100; /* Darker orange hover color */
+}
+
+/* Improved button text color for better readability */
+.btn {
+  color: #ffffff;
+}
+
+/* Improved button background color for better contrast */
+.btn-primary {
+  background-color: #007bff; /* Blue button background */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker blue hover color */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Gray button background */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker gray hover color */
+}
