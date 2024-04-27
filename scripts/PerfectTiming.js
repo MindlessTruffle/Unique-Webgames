@@ -48,7 +48,7 @@ function checkAchievements() {
   // Note: proably better if this is based off the text (or what it should be using a var), to stop not getting achievement when you should
   Object.entries(targetTimes).forEach(([time, title]) => {
     const targetTime = parseFloat(time);
-    if (Math.abs(elapsedTime - targetTime) < 0.217 && elapsedTime > previousTime) {
+    if (Math.abs(elapsedTime - targetTime) < 0.017 && elapsedTime > previousTime) {
       document.getElementById("stopwatch").textContent = `${targetTime}.00s`
       unlockAchievement(`${title}`, `Achieve a time of ${targetTime}.00s`);
       previousTime = elapsedTime;
