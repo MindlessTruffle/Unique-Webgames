@@ -1,8 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(-45deg, skyblue, #e972a1);
-  background-size: 500% 500%;
-  /* change this if bottom of page glitch*/
+  background-size: 500% 500%; /* increase this if bottom of page glitch*/
   animation: gradient 10s ease infinite;
   padding-top: 20vw;
   margin: 0;
@@ -22,31 +21,6 @@ body {
   }
 }
 
-
-.card {
-  margin: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.5s, box-shadow 0.5s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.2);
-  transition: transform 0.5s;
-}
-
-.card:hover img {
-  transform: scale(1);
-}
 
 .top-bar {
   backdrop-filter: blur(0.5rem);
