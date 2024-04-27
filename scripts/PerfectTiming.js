@@ -42,7 +42,8 @@ function checkAchievements() {
     3: "Super Sigma",
     5: "Alpha",
     10: "Hacks",
-    15: "Kai Cenat"
+    15: "Kai Cenat",
+    60: "Juan."
   };
 
   // Note: proably better if this is based off the text (or what it should be using a var), to stop not getting achievement when you should
