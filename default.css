@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(-45deg, skyblue, #e972a1);
-  background-size: 500% 500%; /* increase this if bottom of page glitch*/
+  background-size: 800% 800%; /* increase this if bottom of page glitch*/
   animation: gradient 10s ease infinite;
   padding-top: 20vw;
   margin: 0;
