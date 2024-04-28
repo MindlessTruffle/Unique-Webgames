@@ -68,8 +68,13 @@ const copyToClipboard = async () => {
   try {
     var articleTitle1 = document.getElementById("articleTitle1").value;
     var articleTitle2 = document.getElementById("articleTitle2").value;
-    var findCommandUsed = document.getElementById("findCommandUsed").checked;
-    var tabsUsed = document.getElementById("tabsUsed").checked;
+    var findCommandUsedCheckbox = document.getElementById("findCommandUsed");
+    var tabsUsedCheckbox = document.getElementById("tabsUsed");
+    findCommandUsedCheckbox.checked = findCommandUsedCheckbox.checked; // Update state
+    tabsUsedCheckbox.checked = tabsUsedCheckbox.checked; // Update state
+
+    var findCommandUsed = findCommandUsedCheckbox.checked;
+    var tabsUsed = tabsUsedCheckbox.checked;
     var messageHTML = "<strong>Total Time: </strong> " + elapsedTime + "s" + "<br>" + "<br>" +
                       "<strong>Starting Article:</strong> " + articleTitle1 + "<br>" +
                       "<strong>Target Article:</strong> " + articleTitle2 + "<br>" +
@@ -105,8 +110,13 @@ document.getElementById("emailBtn").addEventListener("click", function() {
     var subject = "Check out my game of Wiki Hunt!";
     var articleTitle1 = document.getElementById("articleTitle1").value;
     var articleTitle2 = document.getElementById("articleTitle2").value;
-    var findCommandUsed = document.getElementById("findCommandUsed").checked;
-    var tabsUsed = document.getElementById("tabsUsed").checked;
+    var findCommandUsedCheckbox = document.getElementById("findCommandUsed");
+    var tabsUsedCheckbox = document.getElementById("tabsUsed");
+    findCommandUsedCheckbox.checked = findCommandUsedCheckbox.checked; // Update state
+    tabsUsedCheckbox.checked = tabsUsedCheckbox.checked; // Update state
+
+    var findCommandUsed = findCommandUsedCheckbox.checked;
+    var tabsUsed = tabsUsedCheckbox.checked;
 
     var body = "Total Time: " + elapsedTime + "s\n\n" +
                "Starting Article: " + articleTitle1 + "\n" +
