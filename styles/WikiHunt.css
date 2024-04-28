@@ -27,3 +27,28 @@
   transform: scale(1);
 }
 
+/* Toast styling */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: auto;
+  max-width: 300px; /* Adjust width as needed */
+}
+
+.toast-body {
+  padding: 10px 15px;
+  background-color: #1fc949; /* Blue color */
+  color: #ffffff; /* White text */
+  border-radius: 5px;
+}
+
+/* Change toast background color based on bootstrap alert classes */
+.toast-success .toast-body {
+  background-color: #28a745; /* Green color */
+}
+
+.toast-error .toast-body {
+  background-color: #dc3545; /* Red color */
+}
