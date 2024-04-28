@@ -50,5 +50,5 @@ const copyToClipboard = async () => {
   }
 };
 
-
+document.getElementById("copyResultsBtn").addEventListener("click", copyToClipboard);
 document.getElementById("startStopBtn").addEventListener("click", startStop);
