@@ -108,17 +108,16 @@ document.getElementById("emailBtn").addEventListener("click", function() {
     var findCommandUsed = document.getElementById("findCommandUsed").checked;
     var tabsUsed = document.getElementById("tabsUsed").checked;
 
-    var HTMLbody = "Total Time: " + elapsedTime + "s" + "<br>" + "<br>" +
-                   "Starting Article: " + articleTitle1 + "<br>" +
-                   "Target Article: " + articleTitle2 + "<br>" +
-                   "Backtracking/Tabs Used: " + (tabsUsed ? "Yes" : "No") + "<br>" +
-                   "Find Command Used: " + (findCommandUsed ? "Yes" : "No") + "<br>" +
-                   "Play the game and get a time!";
+    var body = "Total Time: " + elapsedTime + "s\n\n" +
+               "Starting Article: " + articleTitle1 + "\n" +
+               "Target Article: " + articleTitle2 + "\n" +
+               "Backtracking/Tabs Used: " + (tabsUsed ? "Yes" : "No") + "\n" +
+               "Find Command Used: " + (findCommandUsed ? "Yes" : "No") + "\n" +
+               "Play the game and get a time!";
 
-    var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(HTMLbody);
+    var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     window.location.href = mailtoLink;
 });
-
 
 document.getElementById("copyResultsBtn").addEventListener("click", copyToClipboard);
 document.getElementById("startStopBtn").addEventListener("click", startStop);
