@@ -103,7 +103,19 @@ const copyToClipboard = async () => {
 // Email button event listener
 document.getElementById("emailBtn").addEventListener("click", function() {
     var subject = "Check out my game of Wiki Hunt!";
-    var body = document.getElementById("copyResultsText").textContent;
+    var articleTitle1 = document.getElementById("articleTitle1").value;
+    var articleTitle2 = document.getElementById("articleTitle2").value;
+    var findCommandUsed = document.getElementById("findCommandUsed").checked;
+    var tabsUsed = document.getElementById("tabsUsed").checked;
+  
+    var body = "**Total Time:** " + elapsedTime + "s" + "\n" + "\n" +
+     "**Starting Article:** " + articleTitle1 + "\n" +
+     "**Target Article:** " + articleTitle2 + "\n" +
+     "**Find Command Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
+     "**Backtracking/Tabs Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
+     "**Play the game and get a time!**" + "\n" +
+     "**https://sammygames.vercel.app/pages/WikiHunt**";
+  
     var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     window.location.href = mailtoLink;
 });
