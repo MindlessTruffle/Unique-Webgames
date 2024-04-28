@@ -113,7 +113,8 @@ document.getElementById("emailBtn").addEventListener("click", function() {
                "Target Article: " + articleTitle2 + "\n" +
                "Backtracking/Tabs Used: " + (tabsUsed ? "Yes" : "No") + "\n" +
                "Find Command Used: " + (findCommandUsed ? "Yes" : "No") + "\n" +
-               "Play the game and get a time!";
+               "Play the game and get a time!" + "\n" +
+               "https://sammygames.vercel.app/pages/WikiHunt";
 
     var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     window.location.href = mailtoLink;
