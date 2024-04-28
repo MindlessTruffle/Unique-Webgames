@@ -83,17 +83,9 @@ const copyToClipboard = async () => {
                        "**Backtracking/Tabs Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
                        "**Play the game and get a time!**" + "\n" +
                        "**https://sammygames.vercel.app/pages/WikiHunt**";
-    var messageEmail = "**Total%20Time:**%20" + elapsedTime + "s" + "\n" + "\n" +
-       "**Starting%20Article:**%20" + articleTitle1 + "\n" +
-       "**Target%20Article:**%20" + articleTitle2 + "\n" +
-       "**Find%20Command%20Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
-       "**Backtracking/Tabs%20Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
-       "**Play%20the%20game%20and%20get%20a%20time!**" + "\n" +
-       "**https://sammygames.vercel.app/pages/WikiHunt**";
 
     // Update the HTML content of the element
     document.getElementById("copyResultsText").innerHTML = messageHTML;
-    document.getElementById("emailBtn").innerHTML = messageEmail;
 
     // Copy the plain text to clipboard
     await navigator.clipboard.writeText(messagePlain);
@@ -108,6 +100,13 @@ const copyToClipboard = async () => {
   }
 };
 
+// Email button event listener
+document.getElementById("emailBtn").addEventListener("click", function() {
+    var subject = "Check out my game of Wiki Hunt!";
+    var body = document.getElementById("copyResultsText").textContent;
+    var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = mailtoLink;
+});
 
 document.getElementById("copyResultsBtn").addEventListener("click", copyToClipboard);
 document.getElementById("startStopBtn").addEventListener("click", startStop);
