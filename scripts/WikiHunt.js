@@ -108,13 +108,12 @@ document.getElementById("emailBtn").addEventListener("click", function() {
     var findCommandUsed = document.getElementById("findCommandUsed").checked;
     var tabsUsed = document.getElementById("tabsUsed").checked;
   
-    var body = "**Total Time:** " + elapsedTime + "s" + "\n" + "\n" +
-     "**Starting Article:** " + articleTitle1 + "\n" +
-     "**Target Article:** " + articleTitle2 + "\n" +
-     "**Find Command Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
-     "**Backtracking/Tabs Used:** " + (findCommandUsed ? "Yes" : "No") + "\n" +
-     "**Play the game and get a time!**" + "\n" +
-     "**https://sammygames.vercel.app/pages/WikiHunt**";
+    var body = "<strong>Total Time: </strong> " + elapsedTime + "s" + "<br>" + "<br>" +
+    "<strong>Starting Article:</strong> " + articleTitle1 + "<br>" +
+    "<strong>Target Article:</strong> " + articleTitle2 + "<br>" +
+    "<strong>Backtracking/Tabs Used:</strong> " + (tabsUsed ? "Yes" : "No") + "<br>" +
+    "<strong>Find Command Used:</strong> " + (findCommandUsed ? "Yes" : "No") + "<br>" +
+    "<strong>Play the game and get a time!</strong>";
   
     var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     window.location.href = mailtoLink;
