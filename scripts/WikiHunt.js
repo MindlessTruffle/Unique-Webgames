@@ -108,12 +108,14 @@ document.getElementById("emailBtn").addEventListener("click", function() {
     var findCommandUsed = document.getElementById("findCommandUsed").checked;
     var tabsUsed = document.getElementById("tabsUsed").checked;
   
-    var body = "<strong>Total Time: </strong> " + elapsedTime + "s" + "<br>" + "<br>" +
-    "<strong>Starting Article:</strong> " + articleTitle1 + "<br>" +
-    "<strong>Target Article:</strong> " + articleTitle2 + "<br>" +
-    "<strong>Backtracking/Tabs Used:</strong> " + (tabsUsed ? "Yes" : "No") + "<br>" +
-    "<strong>Find Command Used:</strong> " + (findCommandUsed ? "Yes" : "No") + "<br>" +
-    "<strong>Play the game and get a time!</strong>";
+    var HTMLbody = "Total Time: " + elapsedTime + "s" + "<br>" + "<br>" +
+    "Starting Article: " + articleTitle1 + "<br>" +
+    "Target Article: " + articleTitle2 + "<br>" +
+    "Backtracking/Tabs Used: " + (tabsUsed ? "Yes" : "No") + "<br>" +
+    "Find Command Used:</strong> " + (findCommandUsed ? "Yes" : "No") + "<br>" +
+    "Play the game and get a time! ";
+
+    var body = HTMLbody.replace(/<br\s*\/?>/mg,"%0D%0A");
   
     var mailtoLink = "mailto:?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     window.location.href = mailtoLink;
