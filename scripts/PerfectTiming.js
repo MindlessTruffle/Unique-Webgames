@@ -40,6 +40,7 @@ function checkAchievements() {
     1: "Rizzler",
     2: "Sigma",
     3: "Super Sigma",
+    4: "Diddler Tickler",
     5: "Alpha",
     10: "Hacks",
     15: "Kai Cenat",
