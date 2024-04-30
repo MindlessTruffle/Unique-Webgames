@@ -35,7 +35,7 @@ function checkAchievements() {
   let elapsedTime = (Date.now() - startTime) / 1000;
 
   const targetTimes = {
-    "0.01": "super gyatt",
+    "0.01": "THE FORBIDDEN GYATT",
     "0.10": "lv 1 gyatt",
     "0.20": "lv 2 gyatt",
     "0.30": "lv3 gyatt",
@@ -52,6 +52,7 @@ function checkAchievements() {
     "40.00": "Level 100 Gyatt",
     "50.00": "Mr Beast",
     "60.00": "Juan.",
+    "69.00": "lmao",
     "3600.00": "😈🤑😈🗣🫄🐺🥵🤓"
   };
 
