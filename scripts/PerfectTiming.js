@@ -37,6 +37,10 @@ function checkAchievements() {
   let elapsedTime = (Date.now() - startTime) / 1000;
 
   const targetTimes = {
+    0.01: "super gyatt",
+    0.1: "lv 1 gyatt",
+    0.2: "lv 2 gyatt",
+    0.3: "lv3 gyatt",
     1: "Rizzler",
     2: "Sigma",
     3: "Super Sigma",
@@ -44,6 +48,10 @@ function checkAchievements() {
     5: "Alpha",
     10: "Hacks",
     15: "Kai Cenat",
+    20: "Tik Tok Rizz Party Leader",
+    30: "Elon Musk",
+    40: "Level 100 Gyatt",
+    50: "Mr Beast",
     60: "Juan."
   };
 
