@@ -31,37 +31,35 @@ function updateTimer() {
   document.getElementById("stopwatch").textContent = seconds + "." + milliseconds.toString().padStart(2, "0") + "s";
 }
 
-let previousTime = 0;
-
 function checkAchievements() {
   let elapsedTime = (Date.now() - startTime) / 1000;
 
   const targetTimes = {
-    0.01: "super gyatt",
-    0.1: "lv 1 gyatt",
-    0.2: "lv 2 gyatt",
-    0.3: "lv3 gyatt",
-    1: "Rizzler",
-    2: "Sigma",
-    3: "Super Sigma",
-    4: "Diddler Tickler",
-    5: "Alpha",
-    10: "Hacks",
-    15: "Kai Cenat",
-    20: "Tik Tok Rizz Party Leader",
-    30: "Elon Musk",
-    40: "Level 100 Gyatt",
-    50: "Mr Beast",
-    60: "Juan."
+    "0.01": "super gyatt",
+    "0.10": "lv 1 gyatt",
+    "0.20": "lv 2 gyatt",
+    "0.30": "lv3 gyatt",
+    "1.00": "Rizzler",
+    "2.00": "Sigma",
+    "3.00": "Super Sigma",
+    "3.05": "Level Sam",
+    "4.00": "Diddler Tickler",
+    "5.00": "Alpha",
+    "10.00": "Hacks",
+    "15.00": "Kai Cenat",
+    "20.00": "Tik Tok Rizz Party Leader",
+    "30.00": "Elon Musk",
+    "40.00": "Level 100 Gyatt",
+    "50.00": "Mr Beast",
+    "60.00": "Juan.",
+    "3600.00": "😈🤑😈🗣🫄🐺🥵🤓"
   };
 
-  // Note: proably better if this is based off the text (or what it should be using a var), to stop not getting achievement when you should
   Object.entries(targetTimes).forEach(([time, title]) => {
-    const targetTime = parseFloat(time);
-    if (Math.abs(elapsedTime - targetTime) < 0.017 && elapsedTime > previousTime) {
-      document.getElementById("stopwatch").textContent = `${targetTime}.00s`
-      unlockAchievement(`${title}`, `Achieve a time of ${targetTime}.00s`);
-      previousTime = elapsedTime;
+    const achivedTime = time + "s"
+    const targetTime = document.getElementById("stopwatch").textContent
+    if (achivedTime === targetTime) {
+      unlockAchievement(`${title}`, `Achieve a time of ${targetTime}`);
     }
   });
 }
