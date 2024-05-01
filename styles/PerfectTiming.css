@@ -3,10 +3,14 @@
 }
 
 #achievements {
+  margin-top: 20px;
+}
+
+#gameContainer {
   margin-top: 50px;
 }
 .card {
-  margin: 20px;
+  margin: 10px;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.5s, box-shadow 0.5s;

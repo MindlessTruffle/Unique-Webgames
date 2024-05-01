@@ -1,6 +1,7 @@
 let startTime, timerInterval;
 let isRunning = false;
 let achievements = [];
+let amtAchievements = 0
 
 function startStop() {
   if (!isRunning) {
@@ -35,25 +36,31 @@ function checkAchievements() {
   let elapsedTime = (Date.now() - startTime) / 1000;
 
   const targetTimes = {
-    "0.01": "THE FORBIDDEN GYATT",
-    "0.10": "lv 1 gyatt",
-    "0.20": "lv 2 gyatt",
-    "0.30": "lv3 gyatt",
-    "1.00": "Rizzler",
-    "2.00": "Sigma",
-    "3.00": "Super Sigma",
-    "3.05": "Level Sam",
-    "4.00": "Diddler Tickler",
-    "5.00": "Alpha",
-    "10.00": "Hacks",
-    "15.00": "Kai Cenat",
+    "0.00": "Use the contact button in the top bar and tell me how you tell this LOL",
+    "0.01": "Singularity",
+    "0.05": "Probably an autoclicker",
+    "0.10": "Carpel Tunnel",
+    "0.20": "Super Speedy",
+    "0.30": "Speedy",
+    "0.50": "Quick",
+    "1.00": "Can read instructions",
+    "2.00": "The more the merrier",
+    "3.00": "tree",
+    "3.05": "SAM | Surface-to-air missile",
+    "4.00": "Silly Billy",
+    "5.00": "Thats a big number",
+    "10.00": "Rizzler",
+    "15.00": "Juan.",
     "20.00": "Tik Tok Rizz Party Leader",
-    "30.00": "Elon Musk",
-    "40.00": "Level 100 Gyatt",
-    "50.00": "Mr Beast",
-    "60.00": "Juan.",
-    "69.00": "lmao",
-    "3600.00": "😈🤑😈🗣🫄🐺🥵🤓"
+    "30.00": "thir tree",
+    "40.00": "This is a boring time",
+    "42.00": "Villain",
+    "50.00": "The Goat?",
+    "60.00": "Go to the home page and find a new game",
+    "69.00": "Funny Number",
+    "420.00": "Funny Number 2",
+    "3600.00": "😈🤑😈🗣🫄🐺🥵🤓",
+    "69420.00": "I bet you think you're real funny dont ya"
   };
 
   Object.entries(targetTimes).forEach(([time, title]) => {
@@ -69,6 +76,7 @@ function unlockAchievement(name, description) {
   if (!achievements.includes(name)) {
     achievements.push(name);
     displayAchievement(name, description);
+    amtAchievements++
   }
 }
 
