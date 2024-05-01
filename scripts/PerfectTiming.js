@@ -3,6 +3,36 @@ let isRunning = false;
 let achievements = [];
 let amtAchievements = 0
 
+
+const targetTimes = {
+  "0.00": "Use the contact button in the top bar and tell me how you tell this LOL",
+  "0.01": "Singularity",
+  "0.05": "Probably an autoclicker",
+  "0.10": "Carpel Tunnel",
+  "0.20": "Super Speedy",
+  "0.30": "Speedy",
+  "0.50": "Quick",
+  "1.00": "You can read instructions",
+  "2.00": "The more the merrier",
+  "3.00": "tree",
+  "3.05": "SAM | Surface-to-air missile",
+  "4.00": "Silly Billy",
+  "5.00": "Thats a big number",
+  "10.00": "Rizzler",
+  "15.00": "Juan.",
+  "20.00": "Tik Tok Rizz Party Leader",
+  "30.00": "thir tree",
+  "40.00": "This is a boring time",
+  "42.00": "Villain",
+  "50.00": "The Goat?",
+  "60.00": "Go to the home page and find a new game",
+  "69.00": "Funny Number",
+  "420.00": "Funny Number 2",
+  "3600.00": "😈🤑😈🗣🫄🐺🥵🤓",
+  "69420.00": "I bet you think you're real funny dont ya"
+};
+
+
 function startStop() {
   if (!isRunning) {
     startTimer();
@@ -33,36 +63,6 @@ function updateTimer() {
 }
 
 function checkAchievements() {
-  let elapsedTime = (Date.now() - startTime) / 1000;
-
-  const targetTimes = {
-    "0.00": "Use the contact button in the top bar and tell me how you tell this LOL",
-    "0.01": "Singularity",
-    "0.05": "Probably an autoclicker",
-    "0.10": "Carpel Tunnel",
-    "0.20": "Super Speedy",
-    "0.30": "Speedy",
-    "0.50": "Quick",
-    "1.00": "Can read instructions",
-    "2.00": "The more the merrier",
-    "3.00": "tree",
-    "3.05": "SAM | Surface-to-air missile",
-    "4.00": "Silly Billy",
-    "5.00": "Thats a big number",
-    "10.00": "Rizzler",
-    "15.00": "Juan.",
-    "20.00": "Tik Tok Rizz Party Leader",
-    "30.00": "thir tree",
-    "40.00": "This is a boring time",
-    "42.00": "Villain",
-    "50.00": "The Goat?",
-    "60.00": "Go to the home page and find a new game",
-    "69.00": "Funny Number",
-    "420.00": "Funny Number 2",
-    "3600.00": "😈🤑😈🗣🫄🐺🥵🤓",
-    "69420.00": "I bet you think you're real funny dont ya"
-  };
-
   Object.entries(targetTimes).forEach(([time, title]) => {
     const achivedTime = time + "s"
     const targetTime = document.getElementById("stopwatch").textContent
@@ -77,6 +77,7 @@ function unlockAchievement(name, description) {
     achievements.push(name);
     displayAchievement(name, description);
     amtAchievements++
+    document.getElementById("achievementCount").innerHTML = `<strong>${amtAchievements}/${Object.keys(targetTimes).length} Achievements Unlocked</strong>`
   }
 }
 
@@ -94,3 +95,5 @@ function displayAchievement(name, description) {
 }
 
 document.getElementById("startStopBtn").addEventListener("click", startStop);
+
+document.getElementById("achievementCount").innerHTML = `<strong>${amtAchievements}/${Object.keys(targetTimes).length} Achievements Unlocked</strong>` // Initalizing Achievements Counter
