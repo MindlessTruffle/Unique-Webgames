@@ -3,6 +3,7 @@ let isRunning = false;
 let achievements = [];
 let amtAchievements = 0
 
+// NOTE: NOTIFICATION ALERT WHEN GETTING NEW, DIFF STYLES FOR LATEST, SORTING, LIST
 
 const targetTimes = {
   "0.00": "Use the contact button in the top bar and tell me how you tell this LOL",
@@ -12,6 +13,7 @@ const targetTimes = {
   "0.20": "Super Speedy",
   "0.30": "Speedy",
   "0.50": "Quick",
+  "0.69": "Magoogoo",
   "1.00": "You can read instructions",
   "2.00": "The more the merrier",
   "3.00": "tree",
@@ -21,17 +23,21 @@ const targetTimes = {
   "10.00": "Rizzler",
   "15.00": "Juan.",
   "20.00": "Tik Tok Rizz Party Leader",
+  "21.50": "Amount of grams in half a Hersheys",
+  "25.00": "Good Job",
   "30.00": "thir tree",
   "40.00": "This is a boring time",
   "42.00": "Villain",
   "50.00": "The Goat?",
   "60.00": "Go to the home page and find a new game",
   "69.00": "Funny Number",
+  "120.00": "WikiHunt is also fun bro...",
   "420.00": "Funny Number 2",
   "3600.00": "😈🤑😈🗣🫄🐺🥵🤓",
   "69420.00": "I bet you think you're real funny dont ya"
 };
 
+export default targetTimes;
 
 function startStop() {
   if (!isRunning) {

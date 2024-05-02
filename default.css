@@ -3,7 +3,7 @@ body {
   background: linear-gradient(-45deg, skyblue, #e972a1);
   background-size: 1800% 1800%; /* increase this if bottom of page glitch*/
   animation: gradient 10s ease infinite;
-  padding-top: 60px;
+  padding-top: 40px;
   margin: 0;
 }
 
