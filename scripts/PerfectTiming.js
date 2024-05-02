@@ -5,7 +5,7 @@ let amtAchievements = 0
 
 // NOTE: NOTIFICATION ALERT WHEN GETTING NEW, DIFF STYLES FOR LATEST, SORTING, LIST
 
-const targetTimes = {
+export const targetTimes = {
   "0.00": "Use the contact button in the top bar and tell me how you tell this LOL",
   "0.01": "Singularity",
   "0.05": "Probably an autoclicker",
