@@ -37,7 +37,7 @@ const targetTimes = {
   "69420.00": "I bet you think you're real funny dont ya"
 };
 
-export default targetTimes;
+// export default targetTimes;
 
 function startStop() {
   if (!isRunning) {
