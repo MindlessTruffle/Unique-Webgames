@@ -21,6 +21,7 @@ const targetTimes = {
   "4.00": "Silly Billy",
   "5.00": "Thats a big number",
   "10.00": "Rizzler",
+  "13.00": "thir treen",
   "15.00": "Juan.",
   "20.00": "Tik Tok Rizz Party Leader",
   "21.50": "Amount of grams in half a Hersheys",
@@ -36,8 +37,6 @@ const targetTimes = {
   "3600.00": "😈🤑😈🗣🫄🐺🥵🤓",
   "69420.00": "I bet you think you're real funny dont ya"
 };
-
-// export default targetTimes;
 
 function startStop() {
   if (!isRunning) {

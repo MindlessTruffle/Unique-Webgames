@@ -1,3 +1,3 @@
-import * as info from '../PerfectTiming.js';
+// import * as info from '../PerfectTiming.js';
 
-console.log(info.targetTimes.length);
+// console.log(info.targetTimes.length);
