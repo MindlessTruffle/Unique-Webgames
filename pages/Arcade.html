@@ -1,50 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
+      <!DOCTYPE html>
+      <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SammyGames Arcade</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../styles/Arcade.css">
-  <link rel="stylesheet" href="../default.css">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SammyGames Arcade</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../styles/Arcade.css">
+        <link rel="stylesheet" href="../default.css">
 
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="f../avicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-  <link rel="manifest" href="../favicon/site.webmanifest">
-  
-  <style>
-  </style>
-</head>
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+        <link rel="manifest" href="../favicon/site.webmanifest">
 
-<body>
+        <style>
+          /* Add your additional styles here */
+          .card {
+            margin-bottom: 20px;
+          }
+        </style>
+      </head>
 
-  <!-- Top bar -->
-  <div class="top-bar">
-    <a href="../.." class="logo-link">
-      <img src="../images/logo.png" alt="Home" class="logo">
-    </a>
+      <body>
 
-    <nav class="nav-links">
-      <a href="../about.html" class="nav-link">About</a>
-      <a href="mailto:themindlesstruffle@gmail.com?subject=Inquiry%20to%20Sammy%20Games!" target="_blank"
-        title="Let's Talk!" class="nav-link">Contact me!</a>
-    </nav>
-  </div>
+        <!-- Top bar -->
+        <div class="top-bar">
+          <a href="../.." class="logo-link">
+            <img src="../images/logo.png" alt="Home" class="logo">
+          </a>
 
-  <!-- MAIN -->
+          <nav class="nav-links">
+            <a href="../about.html" class="nav-link">About</a>
+            <a href="mailto:themindlesstruffle@gmail.com?subject=Inquiry%20to%20Sammy%20Games!" target="_blank"
+              title="Let's Talk!" class="nav-link">Contact me!</a>
+          </nav>
+        </div>
 
-    <div class="container" id="gameContainer">
-      <h1 class="text-center mt-5">🕹️ Sammy Games Arcade 🕹️</h1>
-    </div>
+        <!-- MAIN -->
+        <div class="container" id="gameContainer">
+          <h1 class="text-center mt-5">🕹️ Sammy Games Arcade 🕹️</h1>
 
-  <script src="../scripts/Arcade.js" defer></script>
+          <div class="row justify-content-center mt-5">
+            <!-- Card for each game -->
+            <div class="col-md-4">
+              <div class="card border-success" id="DoodleJumpCard">
+                <a href="./ArcadePages/Jump.html">
+                  <div class="card-body">
+                    <h3 class="card-title"><strong>Doodle Jump</strong></h3>
+                    <!-- Replace the button with an image link -->
+                    
+                      <img src="../images/ArcadeImages/JumpThumbnail.png" alt="Doodle Jump" class="img-fluid">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+        <script src="../scripts/Arcade.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </body>
 
-</html>
+      </html>
