@@ -43,21 +43,31 @@
           <h1 class="text-center mt-5">🕹️ Sammy Games Arcade 🕹️</h1>
 
           <div class="row justify-content-center mt-5">
-            <!-- Card for each game -->
-            <div class="col-md-4">
+            <!-- Card deck to maintain same size for cards -->
+            <div class="card-deck">
+              <!-- First Card for Doodle Jump -->
               <div class="card border-success" id="DoodleJumpCard">
                 <a href="./ArcadePages/Jump.html">
+                  <img src="../images/ArcadeImages/JumpThumbnail.png" alt="Doodle Jump" class="card-img-top">
                   <div class="card-body">
                     <h3 class="card-title"><strong>Doodle Jump</strong></h3>
-                    <!-- Replace the button with an image link -->
-                    
-                      <img src="../images/ArcadeImages/JumpThumbnail.png" alt="Doodle Jump" class="img-fluid">
+                  </div>
+                </a>
+              </div>
+
+              <!-- Second Card for Space Invaders -->
+              <div class="card border-info" id="SpaceInvadersCard">
+                <a href="./ArcadePages/Space.html">
+                  <img src="../images/ArcadeImages/SpaceThumbnail.png" alt="Space Invaders" class="card-img-top">
+                  <div class="card-body">
+                    <h3 class="card-title"><strong>Space Invaders</strong></h3>
                   </div>
                 </a>
               </div>
             </div>
           </div>
         </div>
+
 
         <script src="../scripts/Arcade.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
