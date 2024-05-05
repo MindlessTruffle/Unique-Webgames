@@ -23,9 +23,9 @@ let doodler = {
 //physics
 let velocityX = 0; 
 let velocityY = 0; //doodler jump speed
-let initialVelocityY = -28; //starting velocity Y
-let gravity = 2.20;
-let speed = 9.3;
+let initialVelocityY = 123; //DOES NOTHING, CHANGED AT BOTTOM
+let gravity = 123; //DOES NOTHING, CHANGED AT BOTTOM
+let speed = 123; //DOES NOTHING, CHANGED AT BOTTOM
 
 //platforms
 let platformArray = [];
@@ -223,3 +223,23 @@ function updateScore() {
         maxScore -= points;
     }
 }
+
+function buttonClicked(mode) {
+    if (mode == 1) { // NORMAL
+      initialVelocityY = -9;
+      gravity = 0.52;
+      speed = 7;
+    }
+    else if (mode == 2) { // CRAZY
+      initialVelocityY = -14;
+      gravity = 1.00;
+      speed = 8.3;
+    }
+    else if (mode == 3) { // INSANE
+      initialVelocityY = -28;
+      gravity = 2.20;
+      speed = 9.3;
+    }
+}
+
+buttonClicked(1)
