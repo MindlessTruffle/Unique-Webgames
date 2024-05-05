@@ -23,8 +23,8 @@ let doodler = {
 //physics
 let velocityX = 0; 
 let velocityY = 0; //doodler jump speed
-let initialVelocityY = -18; //starting velocity Y
-let gravity = 0.87;
+let initialVelocityY = -28; //starting velocity Y
+let gravity = 2.20;
 let speed = 9.3;
 
 //platforms
