@@ -1,7 +1,7 @@
 //board
 let board;
 let boardWidth = 360;
-let boardHeight = 576;
+let boardHeight = 600;
 let context;
 
 //doodler
@@ -23,9 +23,9 @@ let doodler = {
 //physics
 let velocityX = 0; 
 let velocityY = 0; //doodler jump speed
-let initialVelocityY = -8; //starting velocity Y
-let gravity = 0.4;
-let speed = 6;
+let initialVelocityY = -18; //starting velocity Y
+let gravity = 0.87;
+let speed = 9.3;
 
 //platforms
 let platformArray = [];
@@ -111,7 +111,7 @@ function update() {
     //score
     updateScore();
     context.fillStyle = "black";
-    context.font = "bold 16px sans-serif";
+    context.font = "bold 22px sans-serif";
     context.fillText(score, 5, 20);
 
   if (gameOver) {
