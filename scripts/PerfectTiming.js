@@ -21,6 +21,7 @@ const targetTimes = {
   "4.04": "Error",
   "5.00": "Thats a big number",
   "5.05": "The Snowy Gorillas",
+  "9.99": "HAHAHAHAHA",
   "10.00": "Rizzler",
   "13.00": "thir treen",
   "15.00": "Juan.",
