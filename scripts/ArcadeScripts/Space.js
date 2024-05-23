@@ -41,7 +41,7 @@ let bulletArray = [];
 let bulletVelocityY = -10; //bullet moving speed
 
 let score = 0;
-let highScore = getCookie("highScore") ? parseInt(getCookie("highScore")) : 0;
+let highScore = getCookie("spaceShooterHighScore") ? parseInt(getCookie("spaceShooterHighScore")) : 0;
 let gameOver = false;
 
 window.onload = function () {
@@ -76,11 +76,14 @@ function update() {
     if (gameOver) {
         if (score > highScore) {
             highScore = score;
-            setCookie("highScore", highScore, 365);
+            setCookie("spaceShooterHighScore", highScore, 365);
         }
         context.fillStyle = "white";
         context.font = "bold 22px courier";
-        context.fillText("Game Over! High Score: " + highScore, boardWidth / 2 - 100, boardHeight / 2);
+        let gameOverText = "Game Over! High Score: " + highScore;
+        let textWidth = context.measureText(gameOverText).width;
+        let x = (boardWidth - textWidth) / 2;
+        context.fillText(gameOverText, x, boardHeight / 2);
         return;
     }
 
@@ -158,7 +161,7 @@ function update() {
     context.fillStyle = "white";
     context.font = "bold 22px courier";
     context.fillText("Score: " + score, 5, 20);
-    context.fillText("High Score: " + highScore, 5, 45);
+    context.fillText("High Score: " + highScore, 5.3, 45);
 }
 
 function moveShip(e) {
