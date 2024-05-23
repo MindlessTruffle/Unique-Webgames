@@ -1,4 +1,3 @@
-//board
 let tileSize = 32;
 let rows = 16;
 let columns = 16;
@@ -9,16 +8,16 @@ let boardHeight = tileSize * rows; // 32 * 16
 let context;
 
 //ship
-let shipWidth = tileSize*2;
+let shipWidth = tileSize * 2;
 let shipHeight = tileSize;
-let shipX = tileSize * columns/2 - tileSize;
-let shipY = tileSize * rows - tileSize*2;
+let shipX = tileSize * columns / 2 - tileSize;
+let shipY = tileSize * rows - tileSize * 2;
 
 let ship = {
-    x : shipX,
-    y : shipY,
-    width : shipWidth,
-    height : shipHeight
+    x: shipX,
+    y: shipY,
+    width: shipWidth,
+    height: shipHeight
 }
 
 let shipImg;
@@ -26,7 +25,7 @@ let shipVelocityX = tileSize; //ship moving speed
 
 //aliens
 let alienArray = [];
-let alienWidth = tileSize*2;
+let alienWidth = tileSize * 2;
 let alienHeight = tileSize;
 let alienX = tileSize;
 let alienY = tileSize;
@@ -42,9 +41,10 @@ let bulletArray = [];
 let bulletVelocityY = -10; //bullet moving speed
 
 let score = 0;
+let highScore = getCookie("highScore") ? parseInt(getCookie("highScore")) : 0;
 let gameOver = false;
 
-window.onload = function() {
+window.onload = function () {
     board = document.getElementById("board");
     board.width = boardWidth;
     board.height = boardHeight;
@@ -57,7 +57,7 @@ window.onload = function() {
     //load images
     shipImg = new Image();
     shipImg.src = "../../images/ArcadeImages/Space/ship.png";
-    shipImg.onload = function() {
+    shipImg.onload = function () {
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
 
@@ -74,6 +74,13 @@ function update() {
     requestAnimationFrame(update);
 
     if (gameOver) {
+        if (score > highScore) {
+            highScore = score;
+            setCookie("highScore", highScore, 365);
+        }
+        context.fillStyle = "white";
+        context.font = "bold 22px courier";
+        context.fillText("Game Over! High Score: " + highScore, boardWidth / 2 - 100, boardHeight / 2);
         return;
     }
 
@@ -91,7 +98,7 @@ function update() {
             //if alien touches the borders
             if (alien.x + alien.width >= board.width || alien.x <= 0) {
                 alienVelocityX *= -1;
-                alien.x += alienVelocityX*2;
+                alien.x += alienVelocityX * 2;
 
                 //move all aliens up by one row
                 for (let j = 0; j < alienArray.length; j++) {
@@ -110,7 +117,7 @@ function update() {
     for (let i = 0; i < bulletArray.length; i++) {
         let bullet = bulletArray[i];
         bullet.y += bulletVelocityY;
-        context.fillStyle="white";
+        context.fillStyle = "white";
         context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
 
         //bullet collision with aliens
@@ -134,8 +141,8 @@ function update() {
     if (alienCount == 0) {
         //increase the number of aliens in columns and rows by 1
         score += alienColumns * alienRows * 100; //bonus points :)
-        alienColumns = Math.min(alienColumns + 1, columns/2 -2); //cap at 16/2 -2 = 6
-        alienRows = Math.min(alienRows + 1, rows-4);  //cap at 16-4 = 12
+        alienColumns = Math.min(alienColumns + 1, columns / 2 - 2); //cap at 16/2 -2 = 6
+        alienRows = Math.min(alienRows + 1, rows - 4);  //cap at 16-4 = 12
         if (alienVelocityX > 0) {
             alienVelocityX += 0.2; //increase the alien movement speed towards the right
         }
@@ -148,9 +155,10 @@ function update() {
     }
 
     //score
-    context.fillStyle="white";
-    context.font="bold 22px courier";
-    context.fillText(score, 5, 20);
+    context.fillStyle = "white";
+    context.font = "bold 22px courier";
+    context.fillText("Score: " + score, 5, 20);
+    context.fillText("High Score: " + highScore, 5, 45);
 }
 
 function moveShip(e) {
@@ -170,12 +178,12 @@ function createAliens() {
     for (let c = 0; c < alienColumns; c++) {
         for (let r = 0; r < alienRows; r++) {
             let alien = {
-                img : alienImg,
-                x : alienX + c*alienWidth,
-                y : alienY + r*alienHeight,
-                width : alienWidth,
-                height : alienHeight,
-                alive : true
+                img: alienImg,
+                x: alienX + c * alienWidth,
+                y: alienY + r * alienHeight,
+                width: alienWidth,
+                height: alienHeight,
+                alive: true
             }
             alienArray.push(alien);
         }
@@ -191,11 +199,11 @@ function shoot(e) {
     if (e.code == "Space") {
         //shoot
         let bullet = {
-            x : ship.x + shipWidth*15/32,
-            y : ship.y,
-            width : tileSize/8,
-            height : tileSize/2,
-            used : false
+            x: ship.x + shipWidth * 15 / 32,
+            y: ship.y,
+            width: tileSize / 8,
+            height: tileSize / 2,
+            used: false
         }
         bulletArray.push(bullet);
     }
@@ -203,7 +211,28 @@ function shoot(e) {
 
 function detectCollision(a, b) {
     return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-           a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-           a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-           a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+        a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
+        a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
+        a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+}
+
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
 }
