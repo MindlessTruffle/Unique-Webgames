@@ -1,9 +1,8 @@
 let startTime, timerInterval;
 let isRunning = false;
 let achievements = [];
-let amtAchievements = 0
-
-// NOTE: NOTIFICATION ALERT WHEN GETTING NEW, DIFF STYLES FOR LATEST, SORTING, LIST
+let amtAchievements = 0;
+let consecutiveOnes = 0;
 
 const targetTimes = {
   "0.00": "Use the contact button in the top bar and tell me how you tell this LOL",
@@ -19,7 +18,9 @@ const targetTimes = {
   "3.00": "tree",
   "3.05": "SAM | Surface-to-air missile",
   "4.00": "Silly Billy",
+  "4.04": "Error",
   "5.00": "Thats a big number",
+  "5.05": "The Snowy Gorillas",
   "10.00": "Rizzler",
   "13.00": "thir treen",
   "15.00": "Juan.",
@@ -64,13 +65,25 @@ function updateTimer() {
   let elapsedTime = (Date.now() - startTime) / 1000; // Convert to seconds
   let seconds = Math.floor(elapsedTime);
   let milliseconds = Math.floor((elapsedTime - seconds) * 100);
-  document.getElementById("stopwatch").textContent = seconds + "." + milliseconds.toString().padStart(2, "0") + "s";
+  let stopwatch = seconds + "." + milliseconds.toString().padStart(2, "0") + "s";
+  document.getElementById("stopwatch").textContent = stopwatch;
+
+  // Check if the stopwatch time is "1.00s"
+  if (stopwatch === "1.00s") {
+    consecutiveOnes++;
+    if (consecutiveOnes === 2) {
+      unlockAchievement("You can read instructions x2", "Achieve two consecutive times of 1.00s");
+      consecutiveOnes = 0; // Reset consecutive count
+    }
+  } else {
+    consecutiveOnes = 0; // Reset consecutive count if the streak is broken
+  }
 }
 
 function checkAchievements() {
   Object.entries(targetTimes).forEach(([time, title]) => {
-    const achivedTime = time + "s"
-    const targetTime = document.getElementById("stopwatch").textContent
+    const achivedTime = time + "s";
+    const targetTime = document.getElementById("stopwatch").textContent;
     if (achivedTime === targetTime) {
       unlockAchievement(`${title}`, `Achieve a time of ${targetTime}`);
     }
@@ -81,8 +94,8 @@ function unlockAchievement(name, description) {
   if (!achievements.includes(name)) {
     achievements.push(name);
     displayAchievement(name, description);
-    amtAchievements++
-    document.getElementById("achievementCount").innerHTML = `<strong>${amtAchievements}/${Object.keys(targetTimes).length} Achievements Unlocked</strong>`
+    amtAchievements++;
+    document.getElementById("achievementCount").innerHTML = `<strong>${amtAchievements}/${Object.keys(targetTimes).length} Achievements Unlocked</strong>`;
   }
 }
 
@@ -92,7 +105,7 @@ function displayAchievement(name, description) {
   achievementItem.classList.add("card", "mb-3");
   achievementItem.innerHTML = `
     <div class="card-body">
-      <h5 class="card-title">${name}</h5>
+      <h5 class="card-title"><strong>${name}</strong></h5>
       <p class="card-text">${description}</p>
     </div>
   `;
@@ -101,4 +114,4 @@ function displayAchievement(name, description) {
 
 document.getElementById("startStopBtn").addEventListener("click", startStop);
 
-document.getElementById("achievementCount").innerHTML = `<strong>${amtAchievements}/${Object.keys(targetTimes).length} Achievements Unlocked</strong>` // Initalizing Achievements Counter
+document.getElementById("achievementCount").innerHTML = `<strong>${amtAchievements}/${Object.keys(targetTimes).length} Achievements Unlocked</strong>`; // Initalizing Achievements Counter

@@ -48,26 +48,33 @@
 
   <!-- MAIN -->
 
-    <div class="container" id="gameContainer">
-      <h1 class="text-center mt-5">🎯 Perfect Timing 🎯</h1>
-      <a href="info/Timings.html" target="_blank">
-      <h5 class="text-center text-primary mt-2"><strong>HOW TO PLAY + ALL TIMES</strong></h5>
-      </a>
-      <h4 class="text-center text-dark mt-2" id="achievementCount"><strong>Loading...</strong></h4>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card mt-5">
-            <div class="card-body text-center">
-              <h2 id="stopwatch" class="mb-4">0.00s</h2>
-              <button id="startStopBtn" class="btn btn-primary">Start</button>
-            </div>
+  <div class="container" id="gameContainer">
+    <h1 class="text-center mt-5">🎯 Perfect Timing 🎯</h1>
+    <a href="info/Timings.html" target="_blank">
+    <h5 class="text-center text-primary mt-2"><strong>HOW TO PLAY + ALL TIMES</strong></h5>
+    </a>
+    <h4 class="text-center text-dark mt-2" id="achievementCount"><strong>Loading...</strong></h4>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-body text-center">
+            <h2 id="stopwatch" class="mb-4">0.00s</h2>
+            <button id="startStopBtn" class="btn btn-primary">Start</button>
           </div>
-          <div id="achievements" class="mt-5">
-            <!-- Achievements will be dynamically added here -->
-          </div>
+        </div>
+        <div id="achievements" class="mt-5">
+          <!-- Achievements will be dynamically added here -->
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+    <div class="toast-body">
+      Text copied to clipboard!
+    </div>
+  </div>
 
   <script src="../scripts/PerfectTiming.js" defer></script>
 
