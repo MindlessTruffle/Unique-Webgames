@@ -60,7 +60,7 @@ window.onload = function () {
     bottomPipeImg = new Image();
     bottomPipeImg.src = "../../images/ArcadeImages/Flappy/bottompipe.png";
 
-    highScore = getHighScores()[0] || 0; // Get the highest score
+    highScore = getCookie("flappyBirdHighScore") || 0;
 
     requestAnimationFrame(update);
     setInterval(placePipes, 1500); //every 1.5 seconds
@@ -173,35 +173,29 @@ function detectCollision(a, b) {
 }
 
 function checkHighScore() {
-    let highScores = getHighScores();
-    highScores.push(score);
-    highScores.sort((a, b) => b - a); // Sort descending
-    if (highScores.length > 10) {
-        highScores.pop(); // Keep only top 10 scores
+    if (score > highScore) {
+        highScore = score;
+        setCookie("flappyBirdHighScore", highScore, 365);
     }
-    setHighScores(highScores);
 }
 
-function setHighScores(scores) {
-    document.cookie = "flappyBirdHighScores=" + JSON.stringify(scores) + "; path=/";
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-function getHighScores() {
-    let name = "flappyBirdHighScores=";
+function getCookie(name) {
+    let nameEQ = name + "=";
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return JSON.parse(c.substring(name.length, c.length));
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
-    return [];
-}
-
-function showLeaderboard() {
-    let highScores = getHighScores();
-    let leaderboard = "Leaderboard:\n";
-    highScores.forEach((score, index) => {
-        leaderboard += (index + 1) + ". " + score + "\n";
-    });
-    alert(leaderboard);
+    return null;
 }
