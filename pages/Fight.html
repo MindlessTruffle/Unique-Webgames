@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BC3874W0Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9BC3874W0Q');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled Fighting Game</title>
+  <meta name="description" content="Play a Neal.fun-like 2 player fighting game!">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles/Fight.css">
+  <link rel="stylesheet" href="../default.css">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="manifest" href="../favicon/site.webmanifest">
+  
+  <style>
+    .container-canvas {
+        margin-right: auto;
+        margin-left: auto;
+        align-items: center;
+        width: 800px;
+    }
+
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(-45deg, skyblue, #e972a1);
+        animation: gradient 2s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    canvas {
+        border: 5px solid #fff;
+        background-color: #000;
+    }
+    /* #resetButton { */
+        /* position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 15px;
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+    } */
+    #winScreen {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 40px;
+        font-family: Cursive;
+        text-align: center;
+        border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <a href="../.." class="logo-link">
+      <img src="../images/logo.png" alt="Home" class="logo">
+    </a>
+
+    <nav class="nav-links">
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="mailto:themindlesstruffle@gmail.com?subject=Inquiry%20to%20Sammy%20Games!" target="_blank"
+        title="Let's Talk!" class="nav-link">Contact me!</a>
+    </nav>
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="container" id="gameContainer">
+    <h1 class="text-center mt-5">⚔️ Untitled Fighting Game ⚔️</h1>
+    <a href="info/Controls.html" target="_blank">
+    <h5 class="text-center text-primary mt-2"><strong>HOW TO PLAY</strong></h5>
+      <div class="container-canvas">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+      </div>
+      <!-- <button id="resetButton" tabindex="-1">Reset Game</button> -->
+      <div id="winScreen"></div>
+      <script src="script.js" ></script>
+    </a>
+  </div>
+
+  <script src="../scripts/Fight.js" defer></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
