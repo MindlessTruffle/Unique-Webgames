@@ -51,7 +51,7 @@ function startStop() {
     checkAchievements();
 
      stopwatch = document.getElementById("stopwatch").textContent;
-    if (stopwatch != "1.00s") {
+    if (stopwatch === "1.00s") {
       consecutiveOnes++;
       console.log(consecutiveOnes);
       console.log(stopwatch);
