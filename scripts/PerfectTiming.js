@@ -49,6 +49,23 @@ function startStop() {
     stopTimer();
     document.getElementById("startStopBtn").textContent = "Start";
     checkAchievements();
+
+    let elapsedTime = (Date.now() - startTime) / 1000;
+    let seconds = Math.floor(elapsedTime);
+    let milliseconds = Math.floor((elapsedTime - seconds) * 100);
+    let stopwatch = seconds + "." + milliseconds.toString().padStart(2, "0") + "s";
+    document.getElementById("stopwatch").textContent = stopwatch;
+    if (stopwatch === "1.00s") {
+      consecutiveOnes++;
+      console.log(consecutiveOnes);
+      console.log(stopwatch);
+      if (consecutiveOnes === 2) {
+        unlockAchievement("You can read instructions x2", "Achieve two consecutive times of 1.00s");
+        consecutiveOnes = 0;
+      }
+    } else {
+      consecutiveOnes = 0;
+    }
   }
 }
 
@@ -69,17 +86,6 @@ function updateTimer() {
   let milliseconds = Math.floor((elapsedTime - seconds) * 100);
   let stopwatch = seconds + "." + milliseconds.toString().padStart(2, "0") + "s";
   document.getElementById("stopwatch").textContent = stopwatch;
-
-  // Check if the stopwatch time is "1.00s"
-  if (stopwatch === "1.00s") {
-    consecutiveOnes++;
-    if (consecutiveOnes === 2) {
-      unlockAchievement("You can read instructions x2", "Achieve two consecutive times of 1.00s");
-      consecutiveOnes = 0; // Reset consecutive count
-    }
-  } else {
-    consecutiveOnes = 0; // Reset consecutive count if the streak is broken
-  }
 }
 
 function checkAchievements() {
