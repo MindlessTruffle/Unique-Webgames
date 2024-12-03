@@ -117,9 +117,19 @@ function displayAchievement(name, description) {
       <p class="card-text">${description}</p>
     </div>
   `;
-  
-  achievementsDiv.insertBefore(achievementItem, achievementsDiv.firstChild);
+
+  // Add the new item to the top
+  achievementsDiv.prepend(achievementItem);
+
+  // Add the bounce animation class
+  achievementItem.classList.add("bounce");
+
+  // Remove the animation class after it completes
+  setTimeout(() => {
+    achievementItem.classList.remove("bounce");
+  }, 500); // Match the duration of the bounce animation
 }
+
 
 
 document.getElementById("startStopBtn").addEventListener("click", startStop);
