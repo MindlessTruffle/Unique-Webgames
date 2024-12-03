@@ -117,8 +117,10 @@ function displayAchievement(name, description) {
       <p class="card-text">${description}</p>
     </div>
   `;
-  achievementsDiv.appendChild(achievementItem);
+  
+  achievementsDiv.insertBefore(achievementItem, achievementsDiv.firstChild);
 }
+
 
 document.getElementById("startStopBtn").addEventListener("click", startStop);
 
