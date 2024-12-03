@@ -26,7 +26,7 @@ const targetTimes = {
   "10.00": "Rizzler",
   "13.00": "thir treen",
   "15.00": "Juan.",
-  "20.00": "Tik Tok Rizz Party Leader",
+  "20.00": "Rizz Party Leader",
   "21.50": "Amount of grams in half a Hersheys",
   "25.00": "Good Job",
   "30.00": "thir tree",
@@ -50,20 +50,30 @@ function startStop() {
     document.getElementById("startStopBtn").textContent = "Start";
     checkAchievements();
 
-    let elapsedTime = (Date.now() - startTime) / 1000;
-    let seconds = Math.floor(elapsedTime);
-    let milliseconds = Math.floor((elapsedTime - seconds) * 100);
-    let stopwatch = seconds + "." + milliseconds.toString().padStart(2, "0") + "s";
-    document.getElementById("stopwatch").textContent = stopwatch;
-    if (stopwatch === "1.00s") {
+     stopwatch = document.getElementById("stopwatch").textContent;
+    if (stopwatch != "1.00s") {
       consecutiveOnes++;
       console.log(consecutiveOnes);
       console.log(stopwatch);
       if (consecutiveOnes === 2) {
-        unlockAchievement("You can read instructions x2", "Achieve two consecutive times of 1.00s");
-        consecutiveOnes = 0;
+        unlockAchievement("You can read instructions x2", "Achieve 2 consecutive times of 1.00s");
+
       }
-    } else {
+      else if (consecutiveOnes === 3) {
+        unlockAchievement("You can read instructions x3", "Achieve 3 consecutive times of 1.00s");
+
+      }
+      else if (consecutiveOnes === 4) {
+        unlockAchievement("You can read instructions x4", "Achieve 4 consecutive times of 1.00s");
+
+      }
+      else if (consecutiveOnes === 5) {
+        unlockAchievement("You can read instructions x5", "Achieve 5 consecutive times of 1.00s");
+
+      }
+
+    }
+    else {
       consecutiveOnes = 0;
     }
   }
