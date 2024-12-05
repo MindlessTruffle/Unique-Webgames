@@ -76,7 +76,6 @@ function checkConsecutiveAchievements(stopwatch) {
   }
 }
 
-
 function startStop() {
   if (!isRunning) {
     startTimer();
@@ -86,10 +85,19 @@ function startStop() {
     document.getElementById("startStopBtn").textContent = "Start";
     checkAchievements();
 
-    stopwatch = document.getElementById("stopwatch").textContent;
-    
-    checkConsecutiveAchievements(stopwatch.replace("s", ""))
+    let stopwatch = document.getElementById("stopwatch").textContent;
+    checkConsecutiveAchievements(stopwatch.replace("s", ""));
   }
+
+  const restartCheckbox = document.getElementById("restartCheckbox");
+  if (restartCheckbox.checked) {
+    restartTimer();
+  }
+}
+
+function restartTimer() {
+  stopTimer();
+  startTimer();
 }
 
 function startTimer() {
@@ -170,3 +178,4 @@ function displayAchievement(name, description) {
 document.getElementById("startStopBtn").addEventListener("click", startStop);
 
 loadAchievementCount(0)
+
