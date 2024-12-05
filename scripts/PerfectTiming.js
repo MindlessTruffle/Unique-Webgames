@@ -15,6 +15,7 @@ const targetTimes = {
   "0.30": "Speedy",
   "0.50": "Quick",
   "0.69": "Magoogoo",
+  "0.99": "Sucker",
   "1.00": "You can read instructions",
   "2.00": "The more the merrier",
   "3.00": "tree",
