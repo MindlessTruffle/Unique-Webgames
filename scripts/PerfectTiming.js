@@ -163,16 +163,15 @@ function displayAchievement(name, description) {
     </div>
   `;
 
-  // Add the new item to the top
+  // send to the top
   achievementsDiv.prepend(achievementItem);
 
-  // Add the bounce animation class
   achievementItem.classList.add("bounce");
 
-  // Remove the animation class after it completes
+  // kill anim class after it completes
   setTimeout(() => {
     achievementItem.classList.remove("bounce");
-  }, 500); // Match the duration of the bounce animation
+  }, 500); // same length of bounce anim
 }
 
 document.getElementById("startStopBtn").addEventListener("click", startStop);
