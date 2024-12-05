@@ -44,6 +44,7 @@ const targetTimes = {
 };
 
 const consecutiveTargetTimes = {
+  "0.25": [2, 3, 4, 5],
   "0.50": [2, 3, 4, 5],
   "1.00": [2, 3, 4, 5],
   "3.00": [2, 3, 4, 5],
